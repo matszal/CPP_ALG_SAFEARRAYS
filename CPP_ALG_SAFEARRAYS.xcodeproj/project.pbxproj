@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6173EC482284C4C900E4570B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6173EC472284C4C900E4570B /* main.cpp */; };
-		61954144229DC98A006DA87C /* IntArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61954143229DC98A006DA87C /* IntArray.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +26,6 @@
 		6173EC442284C4C900E4570B /* CPP_ALG_SAFEARRAYS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CPP_ALG_SAFEARRAYS; sourceTree = BUILT_PRODUCTS_DIR; };
 		6173EC472284C4C900E4570B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		61954142229DC905006DA87C /* IntArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntArray.h; sourceTree = "<group>"; };
-		61954143229DC98A006DA87C /* IntArray.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = IntArray.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +60,6 @@
 			children = (
 				6173EC472284C4C900E4570B /* main.cpp */,
 				61954142229DC905006DA87C /* IntArray.h */,
-				61954143229DC98A006DA87C /* IntArray.cpp */,
 			);
 			path = CPP_ALG_SAFEARRAYS;
 			sourceTree = "<group>";
@@ -124,7 +121,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6173EC482284C4C900E4570B /* main.cpp in Sources */,
-				61954144229DC98A006DA87C /* IntArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

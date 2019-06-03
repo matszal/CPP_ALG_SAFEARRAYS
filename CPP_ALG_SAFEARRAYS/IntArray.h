@@ -25,10 +25,29 @@ public:
   IntArray() = default;
   
   // explicit overloaded ctor
-  explicit IntArray(T);
+  explicit IntArray(T size)
+  {
+    if (size != 0)
+    {
+      m_ptr = new T[size]{};
+      m_size = size;
+    }
+  }
   
   // deep copy ctor
-  IntArray(const IntArray& source);
+  IntArray(const IntArray& source)
+  {
+    if (!source.IsEmpty())
+    {
+      m_size = source.m_size;
+      m_ptr = new T[m_size]{};
+      
+      for(auto i = 0; i < m_size; i++)
+      {
+        m_ptr[i] = source.m_ptr[i];
+      }
+    }
+  }
   
   // dtor dealocate dynamic memory
   ~IntArray(){ delete[] m_ptr; }
@@ -37,10 +56,20 @@ public:
   T Size() const{ return m_size; }
   
   // initialize element at index
-  T& operator [](T);
+  T& operator [](T index)
+  {
+    if (!IsValidIndex(index))
+      std::cout<<"bad index\n";
+    return m_ptr[index];
+  }
   
   // return element @ index
-  T operator [](T) const;
+  T operator [](T index) const
+  {
+    if (!IsValidIndex(index))
+      std::cout<<"bad index\n";
+    return m_ptr[index];
+  }
   
   // check if array is empty
   inline bool IsEmpty() const{ return (m_size == 0); }
@@ -48,11 +77,29 @@ public:
   // function to check boundries of the array index
   bool IsValidIndex(T index) const
   {
-    return (index >=0) && (index < m_size);
+    return ((index >=0) && (index < m_size));
   }
   
   // copy assignment implementation
-  IntArray& operator=(const IntArray& source);
+  IntArray& operator=(const IntArray& source)
+  {
+    if (&source != this)
+    {
+      if (source.m_size != m_size)
+      {
+        delete [] m_ptr;
+        m_size = 0;
+        m_ptr = nullptr;
+        m_ptr = new int[source.m_size];
+        
+        m_size = source.m_size;
+        m_ptr = new int[m_size]{};
+        m_size = source.m_size;
+      }
+      std::copy(source.m_ptr, source.m_ptr + source.m_size, m_ptr);
+    }
+    return *this;
+  }
   
   // swap function noexcept used for optimisation
   // swap function does not throw exceptions
@@ -78,3 +125,4 @@ public:
 };
 
 #endif /* IntArray_h */
+
